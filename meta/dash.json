@@ -1,0 +1,660 @@
+{
+  "layout": {
+    "columns": [{
+      "type": "col-lg-4",
+      "id": "Col1",
+      "title": "Servers"
+    },{
+      "type": "col-lg-4",
+      "id": "Col2",
+      "title": "Websites"
+    },{
+      "type": "col-lg-4",
+      "id": "Col3",
+      "title": "Services"
+    }]
+  },
+  "descriptors": [{
+    "parent": "#Col2",
+    "id": "regBadge",
+    "title": "Registrations",
+    "type": "Badge",
+    "parser": "registrationsData",
+    "datasources": [{
+      "name": "SDB",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "monitor.cns.iu.edu/site_reg_graph_1_jsonp.php",
+        "dataset": "sdb.json"
+      },
+      "description": "All time registrations values for the Scholarly Database and Sci2 drawn from the DB"
+    },{
+      "name": "Sci2",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "monitor.cns.iu.edu/site_reg_graph_1_jsonp.php",
+        "dataset": "sci2.json"
+      },
+      "description": "All time registrations values for the Scholarly Database and Sci2 drawn from the DB"
+    }]
+  },{
+    "parent": "#Col3",
+    "id": "StatsTable",
+    "title": "Registrations",
+    "type": "Table",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "Sites",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/site_registrations-json.php"
+      },
+      "parser": "stats",
+      "description": "Registrations for the Scholarly Database and Sci2 drawn from the DB in real time, aggregated over the last week, the last 30 days and all time"
+    }],
+    "columnTitles": [{
+      "name": "Time",
+      "colspan": 1,
+      "rowspan": 2
+    },{
+      "name": "SDB",
+      "colspan": 4,
+      "rowspan": 1,
+      "children": [
+        "Registrations",
+        "Searches",
+        "Downloads",
+        "Records DLed"
+      ]
+    },{
+      "name": "Sci2 Tool",
+      "colspan": 2,
+      "rowspan": 1,
+      "children": [
+        "Registrations",
+        "Downloads"
+      ]
+    }]
+  },{
+    "parent": "#Col1",
+    "id": "Mem",
+    "title": "Memory",
+    "type": "Line",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "Feynman",
+      "dataUrl": "data.php",
+      "params": {
+          "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+          "node": "feynman",
+          "metric": "memory",
+          "cf": "AVERAGE",
+          "starttime": "n-1y",
+          "endtime": "n",
+          "format": "json",
+          "resolution": "60s"
+      },
+      "parser": "hornby",
+      "description": "Memory statistics of Feynman server. Hover over the chart for point details. Use time filters to set the period of observable data."
+    },{
+      "name": "Turing",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+        "node": "turing",
+        "metric": "memory",
+        "cf": "AVERAGE",
+        "starttime": "n-1y",
+        "endtime": "n",
+        "format": "json",
+        "resolution": "60s"
+      },
+      "parser": "hornby",
+      "description": "Memory statistics of turing server. Hover over the chart for point details. Use time filters to set the period of observable data."
+    }],
+    "margin": {
+      "top": 20,
+      "right": 90,
+      "bottom": 70,
+      "left": 90
+    },
+    "hasFilter": true,
+    "series": {
+      "categoryColumn": "time",
+      "categoryColumnFormat": "%Y%m%d-%H%M",
+      "metricColumns": ["value"],
+      "metricColumnNames": ["value"]
+    },
+    "axes": {
+      "categoryAxis": {
+        "axisLabel": "Time",
+        "axisLabelDistance": "4em",
+        "orientation": "bottom",
+        "tickLabelAngle": -45,
+        "format": "%m/%Y"
+      },
+      "metricAxis": {
+        "axisLabel": "Free Memory (MB)",
+        "axisLabelDistance": "-5em",
+        "orientation": "left",
+        "ticks": 10,
+        "tickLabelAngle": 0
+      }
+    },
+    "height": 250,
+    "seriesColors": ["#8DC63F", "#FFD26C", "#FF9966", "#C55B3E", "#A9A1C2", "#82B9D7"]
+  },{
+    "parent": "#Col1",
+    "id": "disk",
+    "title": "Disk",
+    "type": "Line",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "Feynman",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+        "node": "feynman",
+        "metric": "disk",
+        "cf": "AVERAGE",
+        "starttime": "n-1y",
+        "endtime": "n",
+        "format": "json",
+        "resolution": 60
+      },
+      "parser": "hornby",
+      "description": "Disk statistics of Feynman server. Hover over the chart for point details. Use time filters to set the period of observable data."
+    },{
+        "name": "Turing",
+        "dataUrl": "data.php",
+        "params": {
+          "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+          "node": "turing",
+          "metric": "disk",
+          "cf": "AVERAGE",
+          "starttime": "n-1y",
+          "endtime": "n",
+          "format": "json",
+          "resolution": 60
+        },
+        "parser": "hornby",
+        "description": "Disk statistics of Turing server. Hover over the chart for point details. Use time filters to set the period of observable data."
+    }],
+    "margin": {
+      "top": 20,
+      "right": 90,
+      "bottom": 70,
+      "left": 90
+    },
+    "hasFilter": true,
+    "series": {
+      "categoryColumn": "time",
+      "categoryColumnFormat": "%Y%m%d-%H%M",
+      "metricColumns": ["value"],
+      "metricColumnNames": ["value"]
+    },
+    "axes": {
+      "categoryAxis": {
+        "axisLabel": "Time",
+        "axisLabelDistance": "4em",
+        "orientation": "bottom",
+        "tickLabelAngle": -45,
+        "format": "%m/%Y"
+      },
+      "metricAxis": {
+        "axisLabel": "Disk Free (MB)",
+        "axisLabelDistance": "-5em",
+        "orientation": "left",
+        "ticks": 10,
+        "tickLabelAngle": 0
+      }
+    },
+    "height": 250,
+    "seriesColors": ["#8DC63F", "#FFD26C", "#FF9966", "#C55B3E", "#A9A1C2","#82B9D7"]
+  },{
+    "parent": "#Col1",
+    "id": "Load",
+    "title": "Load",
+    "type": "Line",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "Feynmann",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+        "node": "feynman",
+        "metric": "load_one",
+        "cf": "AVERAGE",
+        "starttime": "n-1y",
+        "endtime": "n",
+        "format": "json",
+        "resolution": 60
+      },
+      "description": "CPU Load statistics of Feynman server. Hover over the chart for point details. Use time filters to set the period of observable data",
+      "parser": "hornby"
+    },{
+      "name": "Turing",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+        "node": "turing",
+        "metric": "load_one",
+        "cf": "AVERAGE",
+        "starttime": "n-1y",
+        "endtime": "n",
+        "format": "json",
+        "resolution": 60
+      },
+      "description": "CPU Load statistics of Turing server. Hover over the chart for point details. Use time filters to set the period of observable data.",
+      "parser": "hornby"
+    }],
+    "margin": {
+      "top": 20,
+      "right": 90,
+      "bottom": 70,
+      "left": 90
+    },
+    "hasFilter": true,
+    "series": {
+      "categoryColumn": "time",
+      "categoryColumnFormat": "%Y%m%d-%H%M",
+      "metricColumns": ["value"],
+      "metricColumnNames": ["value"]
+    },
+    "axes": {
+      "categoryAxis": {
+        "axisLabel": "Time",
+        "axisLabelDistance": "4em",
+        "orientation": "bottom",
+        "tickLabelAngle": -45,
+        "format": "%m/%Y"
+      },
+      "metricAxis": {
+        "axisLabel": "Load",
+        "axisLabelDistance": "-5em",
+        "orientation": "left",
+        "ticks": 10,
+        "tickLabelAngle": 0
+      }
+    },
+    "height": 250,
+    "seriesColors": [ "#8DC63F", "#FFD26C", "#FF9966", "#C55B3E", "#A9A1C2", "#82B9D7" ]
+  },{
+    "parent": "#Col1",
+    "id": "Net",
+    "title": "Network",
+    "type": "Line",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "Feynman",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+        "node": "feynman",
+        "metric": "network",
+        "cf": "AVERAGE",
+        "starttime": "n-1y",
+        "endtime": "n",
+        "format": "json",
+        "resolution": 60
+      },
+      "description": "Network statistics of Feynman server. Hover over the chart for point details. Use time filters to set the period of observable data.",
+      "parser": "hornby"
+    },{
+      "name": "Turing",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+        "node": "turing",
+        "metric": "network",
+        "cf": "AVERAGE",
+        "starttime": "n-1y",
+        "endtime": "n",
+        "format": "json",
+        "resolution": 60
+      },
+      "description": "Network statistics of turing server. Hover over the chart for point details. Use time filters to set the period of observable data.",
+      "parser": "hornby"
+    }],
+    "margin": {
+      "top": 20,
+      "right": 90,
+      "bottom": 70,
+      "left": 90
+    },
+    "hasFilter": true,
+    "series": {
+      "categoryColumn": "time",
+      "categoryColumnFormat": "%Y%m%d-%H%M",
+        "metricColumns": ["value"],
+        "metricColumnNames": ["value"]
+    },
+    "axes": {
+      "categoryAxis": {
+        "axisLabel": "Time",
+        "axisLabelDistance": "4em",
+        "orientation": "bottom",
+        "tickLabelAngle": -45,
+        "format": "%m/%Y"
+      },
+      "metricAxis": {
+        "axisLabel": "Network Bytes Out (MB)",
+        "axisLabelDistance": "-5em",
+        "orientation": "left",
+        "ticks": 10,
+        "tickLabelAngle": 0
+      }
+    },
+    "height": 250,
+    "seriesColors": ["#8DC63F", "#FFD26C", "#FF9966", "#C55B3E", "#A9A1C2", "#82B9D7"]
+  },{
+    "parent": "#Col2",
+    "id": "Monitor",
+    "title": "Website",
+    "type": "Line",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "SDB-Downloads",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/site_reg_graph_jsonp.php",
+        "dataset": "sdb.json"
+      },
+      "description": "SDB Downloads trends. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "Scimaps-Hits",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/scimaps_org-db-get-json.php",
+        "dataset": "hits.json"
+      },
+      "description": "Traffic statistics for hits, Scimaps. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "Scimaps-Errors",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/scimaps_org-db-get-json.php",
+        "dataset": "errors.json"
+      },
+      "description": "Traffic statistics for errors, Scimaps. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "CNS-Hits",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/cns-db-get-json.php",
+        "dataset": "hits.json"
+      },
+      "description": "Traffic statistics for hits, CNS. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "CNS-Errors",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/cns-db-get-json.php",
+        "dataset": "errors.json"
+      },
+      "description": "Traffic statistics for errors, CNS. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "Sci2 Tool Downloads",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/site_reg_graph_jsonp.php",
+        "dataset": "sci2.json"
+      },
+      "description": "Sci2 Downloads trends. Hover over the chart for point details",
+      "parser": "monitor"
+    }],
+    "hasFilter":  true,
+    "margin": {
+      "top": 20,
+      "right": 90,
+      "bottom": 70,
+      "left": 90
+    },
+    "series": {
+      "categoryColumn": "time",
+      "categoryColumnFormat": "%Y%m%d-%H%M",
+      "metricColumns": ["value"],
+      "metricColumnNames": ["value"]
+    },
+    "axes": {
+      "categoryAxis": {
+        "axisLabel": "Time",
+        "axisLabelDistance": "4em",
+        "orientation": "bottom",
+        "tickLabelAngle": -45,
+        "format": "%Y"
+      },
+      "metricAxis": {
+        "axisLabel": "Count",
+        "axisLabelDistance": "-5em",
+        "orientation": "left",
+        "ticks": 10,
+        "tickLabelAngle": 0
+      }
+    },
+    "height": 250,
+    "seriesColors": ["#8DC63F", "#FFD26C", "#FF9966", "#C55B3E", "#A9A1C2", "#82B9D7"]
+  },{
+    "parent": "#Col2",
+    "id": "Mon",
+    "title": "Website",
+    "type": "Line",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "Sci2 Tool Downloads",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/site_reg_graph_jsonp.php",
+        "dataset": "sci2.json"
+      },
+      "description": "Traffic statistics of selected site. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "Scimaps-Hits",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/scimaps_org-db-get-json.php",
+        "dataset": "hits.json"
+      },
+      "description": "Traffic statistics for hits, Scimaps. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "Scimaps-Errors",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/scimaps_org-db-get-json.php",
+        "dataset": "errors.json"
+      },
+      "description": "Traffic statistics for errors, Scimaps. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "CNS-Hits",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/cns-db-get-json.php",
+        "dataset": "hits.json"
+      },
+      "description": "Traffic statistics for hits, CNS. Hover over the chart for point details",
+      "parser": "monitor"
+    },{
+      "name": "CNS-Errors",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://monitor.cns.iu.edu/cns-db-get-json.php",
+        "dataset": "errors.json"
+      },
+      "description": "Traffic statistics for errors, CNS. Hover over the chart for point details",
+      "parser": "monitor"
+    }],
+    "margin": {
+      "top": 20,
+      "right": 90,
+      "bottom": 70,
+      "left": 90
+    },
+    "hasFilter": true, 
+    "series": {
+      "categoryColumn": "time",
+      "categoryColumnFormat": "%Y%m%d-%H%M",
+      "metricColumns": ["value"],
+      "metricColumnNames": ["value"]
+    },
+    "axes": {
+      "categoryAxis": {
+        "axisLabel": "Time",
+        "axisLabelDistance": "4em",
+        "orientation": "bottom",
+        "tickLabelAngle": -45,
+        "format": "%Y"
+      },
+      "metricAxis": {
+        "axisLabel": "Count",
+        "axisLabelDistance": "-5em",
+        "orientation": "left",
+        "ticks": 10,
+        "tickLabelAngle": 0
+      }
+    },
+    "height": 250,
+    "seriesColors": ["#8DC63F", "#FFD26C", "#FF9966", "#C55B3E", "#A9A1C2", "#82B9D7"]
+  },{
+    "parent": "#Col1",
+    "id": "Web1Monitor",
+    "title": "Web1",
+    "type": "Progress",
+    "scale": 360,
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "Disk Free",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/service-status.php",
+        "host": "web1",
+        "service": "disk /",
+        "attr": "performance_data",
+        "format" : "json"
+      },
+      "parser": "hornby_discrete"
+    },{
+      "name": "Network",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/service-status.php",
+        "host": "web1",
+        "service": "eth0 utilization",
+        "attr": "performance_data",
+        "format" : "json"
+      },
+      "parser": "hornby_discrete"
+    },{
+      "name": "Memory Free",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/service-status.php",
+        "host": "web1",
+        "service": "top memory free",
+        "attr": "performance_data",
+        "format" : "json"
+      },
+      "parser": "hornby_discrete"
+    },{
+      "name": "CPU Idle",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://hornby.slis.indiana.edu/cns-json/service-status.php",
+        "host": "web1",
+        "service": "top cpu idle",
+        "attr": "performance_data",
+        "format" : "json"
+      },
+      "parser": "hornby_discrete"
+    }],
+    "margin": {
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    },
+    "height": 250,
+    "description": "Web1 service Status for selected metric.",
+    "seriesColor": "orange"
+  },{
+    "parent": "#Col2",
+    "id": "URLTable",
+    "title": "Top 10",
+    "type": "Table",
+    "datasourceId": 0,
+    "datasources": [{
+      "name": "CNS URL's",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://dev.cns.iu.edu/CNS_Dashboards/webalizer.php",
+        "host": "cns",
+        "type": "url_count"
+      },
+      "parser": "urlData"
+    },{
+      "name": "CNS Transfers",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://dev.cns.iu.edu/CNS_Dashboards/webalizer.php",
+        "host": "cns",
+        "type": "url_xfer"
+      },
+      "parser": "urlData"
+    },{
+      "name": "CNS Files",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://dev.cns.iu.edu/CNS_Dashboards/webalizer.php",
+        "host": "cns",
+        "type": "url_files"
+      },
+      "parser": "urlData"
+    },{
+      "name": "SDB URL's",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://dev.cns.iu.edu/CNS_Dashboards/webalizer.php",
+        "host": "sdb",
+        "type": "url_count"
+      },
+      "parser": "urlData"
+    },{
+      "name": "SDB Transfers",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://dev.cns.iu.edu/CNS_Dashboards/webalizer.php",
+        "host": "sdb",
+        "type": "url_xfer"
+      },
+      "parser": "urlData"
+    },{
+      "name": "SDB Files",
+      "dataUrl": "data.php",
+      "params": {
+        "source": "http://dev.cns.iu.edu/CNS_Dashboards/webalizer.php",
+        "host": "sdb",
+        "type": "url_files"
+      },
+      "parser": "urlData"
+    }],
+    "columnTitles": [{
+      "name": "URL",
+      "colspan": 1,
+      "rowspan": 1
+    },{
+      "name": "Count",
+      "colspan": 1,
+      "rowspan": 1
+    }],
+    "height": 250,
+    "description": "Top 10 resource details fetched from webalizer."
+  }]
+
+}

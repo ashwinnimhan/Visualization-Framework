@@ -1,0 +1,38 @@
+node
+	web1
+	turing
+	feynman
+	gray
+
+metric
+	disk
+	load_one
+	memory
+	network
+	
+sample		
+	"node": feynman"
+	"metric": "memory"
+	"cf": "AVERAGE"
+	"starttime": "--start"
+	"&endtime": "-1h"
+	"format": "json"
+	"resolution": "60"
+
+Scimaps - 
+http://monitor.cns.iu.edu/scimaps_org-db-get-json.php?dataset=hits.json
+http://monitor.cns.iu.edu/scimaps_org-db-get-json.php?dataset=errors.json
+
+CNS - 
+http://monitor.cns.iu.edu/cns-db-get-json.php?dataset=hits.json
+http://monitor.cns.iu.edu/cns-db-get-json.php?dataset=errors.json
+
+Registrations - 
+http://monitor.cns.iu.edu/site_reg_graph_jsonp.php?dataset=sdb.json
+http://monitor.cns.iu.edu/site_reg_graph_jsonp.php?dataset=sci2.json
+http://monitor.cns.iu.edu/site_registrations-json.php
+
+Dashboards -
+http://monitor.cns.iu.edu/
+http://hornby.slis.indiana.edu/cns_dashboard/
+

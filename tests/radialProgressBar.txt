@@ -1,0 +1,42 @@
+.progress-label {
+    font-family: sans-serif;
+    font-size: 16pt;
+    stroke: 2px solid #bbb;
+    fill: #777;
+}
+
+var ds = {
+	progress: 30,
+  scale: 360,
+  dimension: 200,
+  element: "body"
+};
+
+var arc = d3.svg.arc()
+			.innerRadius(ds.dimension / 2 - 30)
+			.outerRadius(ds.dimension / 2 - 20)
+			.startAngle(-1.571)
+
+var svg = d3.select(ds.element)
+			.append("svg")
+			.attr("width", ds.dimension)
+			.attr("height", ds.dimension)
+			.append("g")
+			.attr("transform", "translate(" + ds.dimension / 2 + "," + ds.dimension / 2 + ")")
+
+	svg.append("text")
+       .attr("x", 2)
+	   .attr("y", 10)
+	   .text(ds.progress + "%")
+	   .attr("class", "progress-label")
+	   .attr("text-anchor", "middle")
+
+var background = svg.append("path")
+					.datum({endAngle: (ds.scale / 180 * Math.PI) - 1.571})
+					.style("fill", "#ddd")
+					.attr("d", arc);
+
+var foreground = svg.append("path")
+					.datum({endAngle: ((ds.progress / 100) * ds.scale / 180 * Math.PI - 1.571)})
+					.style("fill", "Orange")
+					.attr("d", arc);				

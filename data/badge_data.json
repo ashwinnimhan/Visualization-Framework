@@ -1,0 +1,22 @@
+[{
+  "item": "CNS",
+  "description": "cns.iu.edu",
+  "value": "465K",
+  "deltaType": "gain",
+  "delta": "20%",
+  "period": "/ week"
+}, {
+  "item": "SCIMAPS",
+  "description": "scimaps.org",
+  "value": "3.6M",
+  "deltaType": "drop",
+  "delta": "8%",
+  "period": "/ week"
+}, {
+  "item": "IVMOOC",
+  "description": "ivmooc.cs.iu.edu",
+  "value": "208K",
+  "deltaType": "gain",
+  "delta": "7%",
+  "period": "/ week"
+}]

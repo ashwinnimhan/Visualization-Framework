@@ -1,0 +1,250 @@
+/*Page styles*/
+body, html {
+  background: #F9F9F9;
+  font: 10pt sans-serif;
+}
+
+#header {
+  position: fixed; z-index: 999;
+  background: #0E1E24;
+  width: 100%; height: 50px;
+  box-shadow: 2px 3px 3px #888;
+  font: 23px/50px sans-serif;
+  color: #FFF; 
+  padding-left: 15px
+}
+
+#pages-dd {
+  width: 32px; height: 32px;
+  border: 2px solid #FFF;
+  border-radius: 16px;
+  margin: -43px 5px 0px 0px;
+}
+
+.page-section {
+  padding-top: 60px; 
+}
+.section-header {
+  font: 20px/30px sans-serif;
+  padding: 0px 10px;
+  margin: 0px 0px 5px 0px;
+  border-left: 7px solid #b30000;
+  color: dodgerblue;
+}
+.section-card {
+  background: #FFF;
+  width: 100%; height: 100%;
+  padding: 0px; margin: 0px 0px 10px 0px;
+  box-shadow: 2px 2px 4px #ccc;
+  transition: 0.4s all ease-in-out;
+  font-family: sans-serif;
+  font-size: 10pt;
+}
+.section-title {
+  width: 100%; height: 40px;
+  padding: 10px; margin: 0px;
+  text-decoration: none !important;
+  font: 12pt sans-serif;
+  color: #FFF;
+  background: #0E1E24;
+  border: 1px solid #0E1E24;
+  line-height: 18px;
+}
+.section-title:hover {
+  background: rgba(14, 30, 36, 0.9);
+  cursor: pointer;
+}
+.section-title > button, 
+.section-title > button:hover {
+  margin: -6px 0px 0px 0px; float: right;
+  background: transparent; border: 0px;
+  color: #FFF; 
+}
+.section-toolbar .btn {
+  float: right; background: transparent;
+  margin-top: -22px; padding: 2px !important;
+  border-radius: 0px; border: none;
+  box-shadow: none;
+  width: 24px; height: 24px;
+  color: #FFF;
+}
+.section-toolbar .dropdown-menu {
+  left: auto; 
+  top: 1px; right: -1px;
+  border-radius: 0px;
+}
+.section-content {
+  width: 100%; height: 100%;
+  padding: 0px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+}
+.sortable-placeholder {
+  border: 1px dashed dodgerblue;
+  height: 200px;
+}
+
+/*Transition styles*/
+.collapse {
+  display: none;
+}
+.expand {
+  display: block;
+  min-height: 225px;
+}
+
+/*Widget styles*/
+.axis path, .axis line,
+.metricAxis path, .metricAxis line,
+.categoryAxis path, .categoryAxis line{
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+.tick {
+  font-size: 11px;
+}
+
+.cbtHolder{
+  width: 100%; height: auto;
+  padding: 0px 20px 10px 20px;
+}
+.componentBarTable {
+  width: 100%; height: auto;
+  text-align: right;
+  line-height: 15px;
+  border-collapse: collapse;
+  color: #666;
+}
+.componentBarTable td {
+  padding: 2px 5px;
+}
+.componentBarTable .pin-head{
+  width: 18px; height: 18px;
+  border-radius: 9px;
+  margin: 0px -35px 0px 0px;
+}
+.componentBarTable .tag{
+  text-align: left;
+}
+
+.tableWidget {
+  width: 100%; height: auto;
+  border-collapse: collapse;
+  overflow-y: visible;
+}
+.tableWidget th, .tableWidget tr, .tableWidget td{
+  border: 1px solid #BBBBBB;
+  padding: 3px;
+}
+.tableWidget thead, th {
+  border-bottom: 2px solid #666;
+  text-align: center
+}
+.tableWidget tbody td {
+  text-align: right;
+}
+.tableWidget tbody td:first-of-type {
+  text-align: left;
+}
+
+.badge-widget {
+  width: 100%; height: auto;
+}
+.badges {
+  padding: 3px 10px;
+  border-bottom: 1px solid #C9C9C9;
+}
+.big-font {
+  width: 100%; height: 30px;
+  font: 18px/30px sans-serif;
+  padding: 0px; margin: 0px;
+}
+.small-font {
+  width: 100%; height: 15px;
+  font: 12px/15px sans-serif;
+  font-weight: bold;
+  padding: 0px; margin: 0px;
+}
+.item, .description {
+  float: left;
+}
+.value, .gain-loss {
+  float: right;
+}
+.gain {
+  color: green;
+}
+.gain:before {
+  content: '\25B2';
+}
+.drop {
+  color: red;
+}
+.drop:before {
+  content: '\25BC'
+}
+
+.progress-label {
+    font-family: sans-serif;
+    font-size: 16pt;
+    stroke: 2px solid #bbb;
+    fill: #777;
+}
+
+.filter-bar {
+  float: right;
+}
+.filter-bar .btn{
+  background: rgb(241, 241, 241) none repeat scroll 0% 0%;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 24px; height: 24px; 
+  margin: 4px; padding: 0px;
+  color: #404040;
+}
+
+.filter-bar .btn.selected {
+  font-weight: bold;
+  border-color: dodgerblue;
+}
+
+.geo-path {
+  stroke: #333;
+  stroke-width: 0.25px;
+  fill: #ccc;
+}
+
+.popover-title, .popover-content{
+  display: block; color: #333;
+  font: 11px sans-serif;
+  padding: 5px 8px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: steelblue;
+  stroke: steelblue;
+}
+
+.maximized {
+  background: white;
+  position: fixed;
+  width: 100%; height: 100%;
+  top: 0px; left: 0px;
+  z-index: 999;
+  margin: 0px; padding :0px;
+  border: 0px; 
+}
+.minimized {
+  width: 0px; height: 0xp;
+  overflow: hidden;
+}

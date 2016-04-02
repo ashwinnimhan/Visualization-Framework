@@ -1,0 +1,838 @@
+{
+    "layout": {
+        "columns": [
+            {
+                "type": "col-sm-4",
+                "id": "Col1",
+                "title": "Servers"
+            },
+            {
+                "type": "col-sm-4",
+                "id": "Col2",
+                "title": "Websites"
+            },
+            {
+                "type": "col-sm-4",
+                "id": "Col3",
+                "title": "Registrations"
+            }
+        ]
+    },
+    "descriptors": [
+        {
+            "parent": "#Col1",
+            "id": "cnsBadge",
+            "title": "Feynmann Vital",
+            "type": "Badge",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Feynmann",
+                    "dataUrl": "data/badge_data.json",
+                    "params": {}
+                }
+            ]
+        },
+        {
+            "parent": "#Col1",
+            "id": "Feynmann",
+            "title": "Feynmann Stats",
+            "type": "ComponentBar",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Feynmann",
+                    "dataUrl": "data/componentBar_data.json",
+                    "params": {}
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 20,
+                "bottom": 20,
+                "left": 20
+            },
+            "series": {
+                "categoryColumn": "Downloads",
+                "metricColumn": "kB",
+                "metricColumnNames": [
+                    "KiloBytes"
+                ]
+            },
+            "thickness": 50,
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col1",
+            "id": "TuringBar",
+            "title": "Turing Stats",
+            "type": "Bar",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Feynmann",
+                    "dataUrl": "data/bar_data.json",
+                    "params": {}
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 100,
+                "bottom": 50,
+                "left": 100
+            },
+            "series": [
+                {
+                    "name": "Count(Under 5)",
+                    "categoryColumn": "State",
+                    "metricColumn": "Under_5"
+                }
+            ],
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "State",
+                    "axisLabelDistance": "3.1em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45
+                },
+                "metricAxis": {
+                    "axisLabel": "Count(Under 5)",
+                    "axisLabelDistance": "-6em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col2",
+            "id": "TuringLine",
+            "title": "Turing Stats",
+            "type": "Line",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Feynmann",
+                    "dataUrl": "data/line_data.json",
+                    "params": {}
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 70,
+                "bottom": 40,
+                "left": 70
+            },
+            "hasFilter": true,
+            "series": {
+                "categoryColumn": "time",
+                "categoryColumnFormat": "%Y%m%d",
+                "metricColumns": [
+                    "TX",
+                    "NY",
+                    "SF"
+                ],
+                "metricColumnNames": [
+                    "Texas",
+                    "New York",
+                    "San-Franscisco"
+                ]
+            },
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "Time",
+                    "axisLabelDistance": "2.5em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45,
+                    "format": "%d-%b"
+                },
+                "metricAxis": {
+                    "axisLabel": "Temperature(F)",
+                    "axisLabelDistance": "-3.5em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col3",
+            "id": "TuringLine1",
+            "title": "Turing Stats",
+            "type": "Line",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Feynmann",
+                    "dataUrl": "data/line_data1.json",
+                    "params": {}
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 70,
+                "bottom": 40,
+                "left": 70
+            },
+            "series": {
+                "categoryColumn": "time",
+                "categoryColumnFormat": "%Y%m%d",
+                "metricColumns": [
+                    "IN",
+                    "OH",
+                    "CA"
+                ],
+                "metricColumnNames": [
+                    "Indiana",
+                    "Ohio",
+                    "California"
+                ]
+            },
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "Time",
+                    "axisLabelDistance": "2.5em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45,
+                    "format": "%d-%b"
+                },
+                "metricAxis": {
+                    "axisLabel": "Count(F)",
+                    "axisLabelDistance": "-3.5em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col2",
+            "id": "TuringCol",
+            "title": "Turing Stats",
+            "type": "Column",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Feynmann",
+                    "dataUrl": "data/bar_data.json",
+                    "params": {}
+                }
+            ],
+            "height": 400,
+            "margin": {
+                "top": 20,
+                "right": 100,
+                "bottom": 50,
+                "left": 70
+            },
+            "series": [
+                {
+                    "name": "Count(Under 5)",
+                    "categoryColumn": "State",
+                    "metricColumn": "Under_5"
+                }
+            ],
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "State",
+                    "axisLabelDistance": "-4em",
+                    "orientation": "left",
+                    "tickLabelAngle": 0
+                },
+                "metricAxis": {
+                    "axisLabel": "Count(Under 5)",
+                    "axisLabelDistance": "3.1em",
+                    "orientation": "bottom",
+                    "ticks": 10,
+                    "tickLabelAngle": -45
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col3",
+            "id": "TuringTable",
+            "title": "Turing Stats Tabular",
+            "type": "Table",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Feynmann",
+                    "dataUrl": "data/table_data.json",
+                    "params": {}
+                }
+            ],
+            "columnTitles": [
+                {
+                    "name": "aaa",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "children": [
+                        "max",
+                        "min",
+                        "avg"
+                    ]
+                },
+                {
+                    "name": "bbb",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "children": [
+                        "max",
+                        "min"
+                    ]
+                },
+                {
+                    "name": "total",
+                    "colspan": 1,
+                    "rowspan": 2
+                }
+            ]
+        },
+        {
+            "parent": "#Col3",
+            "id": "StatsTable",
+            "title": "Stats Tabular",
+            "type": "Table",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "Name": "Sites",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://monitor.cns.iu.edu/site_registrations-json.php"
+                    },
+                    "parser": "stats"
+                }
+            ],
+            "columnTitles": [
+                {
+                    "name": "Time",
+                    "colspan": 1,
+                    "rowspan": 2
+                },
+                {
+                    "name": "SDB",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "children": [
+                        "Registrations",
+                        "Searches",
+                        "Downloads",
+                        "Records DLed"
+                    ]
+                },
+                {
+                    "name": "Sci2",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "children": [
+                        "Activated Users",
+                        "Downloads"
+                    ]
+                }
+            ]
+        },
+        {
+            "parent": "#Col1",
+            "id": "Mem",
+            "title": "Memory Stats",
+            "type": "Line",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "name": "Feynmann",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "feynman",
+                        "metric": "memory",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                },
+                {
+                    "name": "Turing",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "turing",
+                        "metric": "memory",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 90,
+                "bottom": 70,
+                "left": 90
+            },
+            "series": {
+                "categoryColumn": "time",
+                "categoryColumnFormat": "%Y%m%d-%H%M",
+                "metricColumns": [
+                    "value"
+                ],
+                "metricColumnNames": [
+                    "value"
+                ]
+            },
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "Time(60 mins)",
+                    "axisLabelDistance": "4em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45,
+                    "format": "%H:%M"
+                },
+                "metricAxis": {
+                    "axisLabel": "Utilization(KB)",
+                    "axisLabelDistance": "-5em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col1",
+            "id": "Cpu",
+            "title": "Feynmann Disk Stats",
+            "type": "Line",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "name": "Feynmann",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "feynman",
+                        "metric": "disk",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                },
+                {
+                    "name": "Turing",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "turing",
+                        "metric": "disk",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 90,
+                "bottom": 70,
+                "left": 90
+            },
+            "series": {
+                "categoryColumn": "time",
+                "categoryColumnFormat": "%Y%m%d-%H%M",
+                "metricColumns": [
+                    "value"
+                ],
+                "metricColumnNames": [
+                    "value"
+                ]
+            },
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "Time(60 mins)",
+                    "axisLabelDistance": "4em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45,
+                    "format": "%H:%M"
+                },
+                "metricAxis": {
+                    "axisLabel": "Utilization(KB)",
+                    "axisLabelDistance": "-5em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col1",
+            "id": "Load",
+            "title": "Feynmann Load Stats",
+            "type": "Line",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "name": "Feynmann",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "feynman",
+                        "metric": "load_one",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                },
+                {
+                    "name": "Turing",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "turing",
+                        "metric": "load_one",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 90,
+                "bottom": 70,
+                "left": 90
+            },
+            "series": {
+                "categoryColumn": "time",
+                "categoryColumnFormat": "%Y%m%d-%H%M",
+                "metricColumns": [
+                    "value"
+                ],
+                "metricColumnNames": [
+                    "value"
+                ]
+            },
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "Time(60 mins)",
+                    "axisLabelDistance": "4em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45,
+                    "format": "%H:%M"
+                },
+                "metricAxis": {
+                    "axisLabel": "Utilization(KB)",
+                    "axisLabelDistance": "-5em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col1",
+            "id": "Net",
+            "title": "Feynmann Network Stats",
+            "type": "Line",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "name": "Feynmann",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "feynman",
+                        "metric": "network",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                },
+                {
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://hornby.slis.indiana.edu/cns-json/rrdtool.php",
+                        "node": "turing",
+                        "metric": "network",
+                        "cf": "AVERAGE",
+                        "starttime": "--start",
+                        "endtime": "-1h",
+                        "format": "data",
+                        "resolution": 60
+                    },
+                    "parser": "hornby"
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 90,
+                "bottom": 70,
+                "left": 90
+            },
+            "series": {
+                "categoryColumn": "time",
+                "categoryColumnFormat": "%Y%m%d-%H%M",
+                "metricColumns": [
+                    "value"
+                ],
+                "metricColumnNames": [
+                    "value"
+                ]
+            },
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "Time(60 mins)",
+                    "axisLabelDistance": "4em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45,
+                    "format": "%H:%M"
+                },
+                "metricAxis": {
+                    "axisLabel": "Utilization(KB)",
+                    "axisLabelDistance": "-5em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col2",
+            "id": "MonitorRad",
+            "title": "Website Stats",
+            "type": "Progress",
+            "scale": 360,
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "name": "Progress-Test",
+                    "dataUrl": "data/progress_data.json",
+                    "params": {}
+                }
+            ],
+            "margin": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+            },
+            "seriesColor": "orange"
+        },
+        {
+            "parent": "#Col1",
+            "id": "Monitor",
+            "title": "Website Stats",
+            "type": "Line",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "name": "Scimaps-Hits",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://monitor.cns.iu.edu/scimaps_org-db-get-json.php",
+                        "dataset": "hits.json"
+                    },
+                    "parser": "monitor"
+                },
+                {
+                    "name": "Scimaps-Errors",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://monitor.cns.iu.edu/scimaps_org-db-get-json.php",
+                        "dataset": "errors.json"
+                    },
+                    "parser": "monitor"
+                },
+                {
+                    "name": "CNS-Hits",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://monitor.cns.iu.edu/cns-db-get-json.php",
+                        "dataset": "hits.json"
+                    },
+                    "parser": "monitor"
+                },
+                {
+                    "name": "CNS-Errors",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://monitor.cns.iu.edu/cns-db-get-json.php",
+                        "dataset": "errors.json"
+                    },
+                    "parser": "monitor"
+                },
+                {
+                    "name": "Sci2-Downloads",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://monitor.cns.iu.edu/site_reg_graph_jsonp.php",
+                        "dataset": "sci2.json"
+                    },
+                    "parser": "monitor"
+                },
+                {
+                    "name": "SDB-Registrations",
+                    "dataUrl": "data.php",
+                    "params": {
+                        "source": "http://monitor.cns.iu.edu/site_reg_graph_jsonp.php",
+                        "dataset": "sdb.json"
+                    },
+                    "parser": "monitor"
+                }
+            ],
+            "margin": {
+                "top": 20,
+                "right": 90,
+                "bottom": 70,
+                "left": 90
+            },
+            "series": {
+                "categoryColumn": "time",
+                "categoryColumnFormat": "%Y%m%d-%H%M",
+                "metricColumns": [
+                    "value"
+                ],
+                "metricColumnNames": [
+                    "value"
+                ]
+            },
+            "axes": {
+                "categoryAxis": {
+                    "axisLabel": "Time(60 mins)",
+                    "axisLabelDistance": "4em",
+                    "orientation": "bottom",
+                    "tickLabelAngle": -45,
+                    "format": "%Y"
+                },
+                "metricAxis": {
+                    "axisLabel": "Utilization(KB)",
+                    "axisLabelDistance": "-5em",
+                    "orientation": "left",
+                    "ticks": 10,
+                    "tickLabelAngle": 0
+                }
+            },
+            "seriesColors": [
+                "#8DC63F",
+                "#FFD26C",
+                "#FF9966",
+                "#C55B3E",
+                "#A9A1C2",
+                "#82B9D7"
+            ]
+        },
+        {
+            "parent": "#Col2",
+            "id": "testMap",
+            "title": "Website Stats",
+            "type": "Map",
+            "datasourceId": 0,
+            "datasources": [
+                {
+                    "name": "Map-Spots",
+                    "dataUrl": "data/world-110m2.json",
+                    "params": {}
+                }
+            ],
+            "height": 300,
+            "scale": 150,
+            "center": [
+                1,
+                5
+            ],
+            "margin": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+            }
+        }
+    ]
+}
